@@ -3,483 +3,572 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quize</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+
+    <style>        
+        .hide-element:not(.show-element){
+            display: none;
+        }
+        .qzz_header{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .show-element{
+            display: block;
+            border: solid 1px;margin: 5px 0;
+        }
+        .qzz_btns{
+          display: flex;
+          justify-content:space-between;
+   
+        }
+        .qzz_width{
+            min-width:80% !important;
+            text-align: start !important;
+        }
+        .qzz_bg{
+            background: rgb(223, 230, 195) !important;
+        }
+        .qzz__qo{
+         
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;background: rgb(33, 143, 233);color: white;
+        }
+        .sno{
+            background: #000;
+            color: white;
+            padding: 5px 10px; margin: 5px; border-radius: 10px;
+        }
+        .qzz__co{
+            background: rgb(199, 198, 162);color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            border: solid 1px; margin: 5px 0;
+        }
+        .mk{
+       padding:5px ;background: rgb(245, 244, 242);
+        }
+        .bg-warning{
+            background: rgb(14, 177, 169);color: white; margin: 5px; padding: 5px;
+        }
+        .bg-danger{
+            background: rgb(194, 2, 2);color: white; margin: 5px; padding: 5px;
+        }
+        .bg-success{
+            background: rgb(28, 139, 18);color: white; margin: 5px; padding: 5px;
+        }
+        .bg-primary{
+            background: rgb(9, 131, 212);color: white;
+            margin: 5px; padding: 5px;
+        }
+        .uul{
+    list-style: none;
+}
+/* #qzz_ins{
+    transition: 5s ease-in !important;
+} */
+    </style>
+    
 </head>
 
-<style>
-    .qzz__header{
-
-    }
-    .qzz__sec__header >p{
-           background: #000;
-           color:white;font-weight: bold;
-           padding: 10px;
-           border-radius: 8px;
-    }
-    .qzz__sec__header{
-display: flex;
-justify-content: space-around;
-    }
-    .qzz__header >.qzz__fir__header>h3{
-        text-align: center;background: red;color: white;padding: 5px;margin: 10px;
-        border-radius: 8px; border: solid 1px;
-    }
-    .qzz__container{
-        border: solid 2px red;
-     background:rgb(211, 211, 126);
-     max-width: 50%;
-     margin:0 auto;
-    }
-    .qzz__radio{
-      display: flex;align-items: center;  
-      border: solid 1px lightblue;
-      margin: 5px;padding: 5px;
-      border-radius: 8px;
-    }
-    .qzz__qo__item{
-   max-width: 100%;
-      background: white;
-        margin: 5px;
-        padding: 5px;
-        border-radius: 8px;
-    }
-    .qzz__qo__container{
-
-    
-    
-    }
-.h4{
-    text-align: center;
-    background: rgb(28, 123, 247);
-    color: white;
-    padding: 10px;        border-radius: 8px;
-}
-
-.qzz__show{
-    display:block !important;
-}
-.qzz__hide{
-    display:none !important;
-}
-
-
-</style>
 <body>
-    <button id="mkmk">cl</button>
-    <button id="mkk">clk</button>
-    <div  class="qzz__container">
-        <div class="qzz__header">
-         <div  class="qzz__fir__header headers"> 
-             <h3>
-                jhfvkl ljkfvbkjfv jbnc 
-             </h3>
-         </div>
-         <div class="qzz__sec__header headers">
-           <p>00:00:00</p>
-           <p>Total&emsp;Que:<span style="background: red; padding: 5px;margin:5px; border-radius: 10px;">10</span></p>
-         </div>
+
+    <div id="qzz_ins">
+        <h4 style="color: rgb(69, 116, 218);">Instructions:
+        </h4>
+                   <ul class="uul">
+                       <li>✓ The test contains 25 questions and there is no
+                        time limit.</li>
+                       <li>✓ If you want to see all questions at a time, Select
+                        show all questions at a time Option in Question
+                        Type.</li>
+                       <li>
+                        ✓ If you want time Limit for the Quiz You can set
+                        by clicking timer.</li>
+                       <li>✓ If you want to see questions one by one, Select
+                        show Questions one by one Option in Question
+                        Type.</li>
+                       <li>✓ Select any one of the correct answers from the
+                        given options.</li>
+                       <li>✓ You will get points on the basis of your correct
+                        answer.</li>
+                       <li>✓ You can review all the answers at the end of this
+                        quiz.</li>
+                       <li>✓ The Name you enter below will appear on your
+                        certificate</li>
+                       <li>✓ To start, click the "Start Quiz" button.
+                        When finished, click the "Submit" button.</li>
+                       <li>✓ Click here to Play Demo Video.</li>
+                   </ul>
+                </div>
+    <div class="container-fluid"  style="background: rgb(235, 169, 26); padding:5px;">
   
+        <div class="card quize-container p-2"  style="background: rgb(235, 169, 26);">
+
+            <div style="padding: 10px; ">
+                <div class="bg-danger" style=" border-radius:10px;"> 
+                    <h3 style="padding:5px; text-align: center; color: white;" >10ஆம் வகுப்பு தமிழ் இயல் – 1 Online Test</h3>
+                </div>
+               
+            </div>
+            <div class="card-header">
+
+                <div class="qzz_header">
+
+                    
+
+                    <div class="" >
+                        <div class="timer-container text-center h5 mb-0">
+                            <div style="background-color: black;color: white;padding: 10px; border-radius: 10px;margin:0 0 5px 0;" id="timer">00 : 00 : 00</div>
+                        </div>
+                    </div>
+
+          
+                    <div class="text-right h5 mb-0"hidden >
+                        <!-- <span class="badge badge-primary badge-pill p-2 p-md-3 d-none" id="total-qstn"></span> -->
+                    </div>
+                    <div class="" hidden >
+                        <span class="badge badge-primary badge-pill p-2 p-md-3 d-none" id="current-qstn">0</span>
+                    </div>
+                     
+
+                    <div class="col-2" >
+                        <div class="timer-container text-center h5 mb-0">
+                            <div style="background-color: black;color: white;padding: 10px; border-radius: 10px;margin:0 0 5px 0;" >Total Qus : <span style="color: red;" class="rounded-3" id="total-qstn"></span></div>
+                        </div>
+                    </div>
+                   
+
+                 
+                    
+                </div>
+
+            </div>
+
+            <div class="card-body py-0" id="quize"  style="background: rgb(235, 169, 26);">
+                <div style="text-align: center;">
+                    <button class="bg-success" id="timer-btn">Start Quize</button>
+                </div>
+
+                <div style="display:none;" id="warnAlert">
+                    <span>Please select answer !</span>
+                </div>
+                <div id="slide-container"></div>
+            </div>
         </div>
-        <div class="qzz__qo__container" id="cont">
-        </div>
-        <div class="answer" id="cont1">
+
+        <div class="controls p-3 clearfix qzz_btns qzz_width">
+            <button  class=" bg-primary hide-element" id="prev-btn">Prev</button>
+            <button class="bg-primary hide-element" id="next-btn">Next</button>
+            <button class="bg-success hide-element" id="submit-btn">Submit</button>
         </div>
     </div>
+
+    <!-- JQuery JS -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <!-- Bootstrap Bundle JS -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Custom JS -->
+    <!-- <script src="./index.js"></script> -->
+    <script>
     
+    // Container of --> Questions, Choices, Answers
 
+const myQuizes = [
+    {
+        question : "If you want to access any element in an HTML page, you always start with accessing the document object.If you want to access any element in an HTML page, you always start with accessing the document object.If you want to access any element in an HTML page, you always start with accessing the document object.",
 
-    <button id="btn">cl</button>
-</body>
-<script>
+        choices : {
+            a : "choice 1",
+            b : "choice 2",
+            c : "choice 3",
+            d : "choice 4"
+        },
 
+        answer : "choice 1"
+    },
 
+    {
+        question : "Question",
 
-const questions=[
+        choices : {
+            a : "choice 1",
+            b : "choice 2",
+            c : "choice 3",
+            d : "choice 4"
+        },
 
-{
-    question:'body of web devlopment',
-    answer:[{a:'css',currect:false},{b:'html',currect:true},
-    {c:'js',currect:false},{d:'react',currect:false}],
-},
-{
-    question:'html vertion',
-    answer:[{a:'4',currect:false},{b:'5',currect:true},
-    {c:'10',currect:false},{d:'11',currect:false}],
- },
- {
-    question:'what is html',
-  answer:[{a:'hyper text markup language',currect:true},{b:'programming language',currect:false},
-     {c:'framwork',currect:false},{d:'laibrari',currect:false}],
- },
- {
-     question:'which simple is use to connect id',
-     answer:[{a:'@',currect:false},{b:'#',currect:true},
-     {c:'&',currect:false},{d:'$',currect:false}],
- },
- {
-     question:'type of react',
-     answer:[{a:'native,js',currect:true},{b:'html,css',currect:false},
-     {c:'native,css',currect:false},{d:'js,html',currect:false}],
- },
- {
-     question:'sql use in',
-     answer:[{a:'frontend',currect:false},{b:'others',currect:false},
-     {c:'server',currect:false},{d:'database',currect:true}],
- },
- {
-     question:'back end language',
-     answer:[{a:'css',currect:false},{b:'php',currect:true},
-     {c:'js',currect:false},{d:'react',currect:false}],
- },
- {
-     question:'css verstion',
-     answer:[{a:'4',currect:false},{b:'5',currect:false},
-     {c:'1',currect:false},{d:'3',currect:true}],
- },
- {
-     question:'js full form',
-     answer:[{a:'javaScript',currect:true},{b:'java',currect:false},
-     {c:'javas',currect:false},{d:'js',currect:false}],
- },
- {
-     question:'form',
-     answer:[{a:'javaScript',currect:true},{b:'java',currect:false},
-     {c:'javas',currect:false},{d:'js',currect:false}],
- },
+        answer : "choice 2"
+    },
 
+    {
+        question : "Question",
 
+        choices : {
+            a : "choice 1",
+            b : "choice 2",
+            c : "choice 3",
+            d : "choice 4"
+        },
+
+        answer : "choice 3"
+    },
+
+    {
+        question : "Question ",
+
+        choices : {
+            a : "choice 1",
+            b : "choice 2",
+            c : "choice 3",
+            d : "choice 4"
+        },
+
+        answer : "choice 4"
+    },
+
+    {
+        question : "Question ",
+
+        choices : {
+            a : "choice 1",
+            b : "choice 2",
+            c : "choice 3",
+            d : "choice 4"
+        },
+
+        answer : "choice 3"
+    },
+
+    {
+        question : "Question ",
+
+        choices : {
+            a : "choice 1",
+            b : "choice 2",
+            c : "choice 3",
+            d : "choice 4"
+        },
+
+        answer : "choice 2"
+    }
 
 ];
 
-    console.log("mk");
+let shuffledArr = myQuizes.sort(() => Math.random() - 0.5);
 
-const mk=document.getElementById('cont');
-const mk1=document.getElementById('cont1');
+//------------- End Container (Questions, Choices, Answers) -----------------
 
-// mk.innerHTML='<h1>jgb</h1>'
+let currentQuestionElement = document.getElementById("current-qstn");
+let timerElement = document.getElementById("timer");
+let totalQuestionElement = document.getElementById("total-qstn");
+let timerButton = document.getElementById("timer-btn");
+let slideContainer = document.getElementById("slide-container");
+let prevBtn = document.getElementById("prev-btn");
+let nextBtn = document.getElementById("next-btn");
+let submitBtn = document.getElementById("submit-btn");
+let inst = document.getElementById("qzz_ins");
 
+let timerCount;
+let questionCount = -1;
+let seconds = 0, minutes = 0, hours = 0;
+let slides;
 
-questions.forEach((x,ind)=>{
+totalQuestionElement.innerText = myQuizes.length;
+
+timerButton.addEventListener("click", startQuize);
+nextBtn.addEventListener("click", () => showQuize("increment"));
+prevBtn.addEventListener("click", () => showQuize("decrement"));
+submitBtn.addEventListener("click", () => showResult());
+
+function startQuize() {
+
+    currentQuestionElement.classList.remove("d-none");
+    totalQuestionElement.classList.remove("d-none");
+    inst.classList.add("hide-element");
+    timerButton.classList.add("hide-element");
     
-    console.log(x);
+    inst
+    timerStart();
+    buildQuize();
+    slides = document.querySelectorAll(".slide");
+    showQuize("increment");
+}
 
+// Timer
 
-    kk=document.createElement('div');
-    kk.innerHTML=`
-    <div class="qzz__qo__item">
-    <div>
-        <h4 class="h4">${ind+1+"."+x.question}</h4>
-    </div>
-    <div class="qzz__radio">
-        <input  type="radio" id="i_${ind+1}" value='${x.answer.map((answer,ind)=>{
-             if (ind==0) {
-                return answer.currect;
-             }
-        })}'  name="r_${ind}">
-        <p>${x.answer.map((answer,index)=>{
-             if (index==0) {
-                 return answer.a;
-             }
-        })}</p>
-    </div>
-    <div class="qzz__radio">
-        <input  type="radio" id="i_${ind+2}" value='${x.answer.map((answer,ind)=>{
-             if (ind==1) {
-                return answer.currect;
-             }
-        })}' name="r_${ind}">
-        <p>${x.answer.map((answer,index)=>{
-             if (index==1) {
-                 return answer.b;
-             }
-        })}</p>
-    </div>
-    <div class="qzz__radio">
-        <input  type="radio" id="i_${ind+3}" value='${x.answer.map((answer,index)=>{
-             if (index==2) {
-                 return answer.currect;
-             }
-        })}' name="r_${ind}">
-        <p>${x.answer.map((answer,index)=>{
-             if (index==2) {
-                 return answer.c;
-             }
-        })}</p>
-    </div>
-    <div class="qzz__radio">
-        <input  type="radio" id="i_${ind+4}" value='${x.answer.map((answer,index)=>{
-             if (index==3) {
-                 return answer.currect;
-             }
-        })}' name="r_${ind}">
-        <p>${x.answer.map((answer,index)=>{
-             if (index==3) {
-                 return answer.d;
-             }
-        })}</p>
-    </div>
-</div>
+function timerStart(){
 
+    timerButton.classList.add("d-none");
+
+    timerCount = setInterval(() => {
+        seconds++;
+
+        if (seconds == 60) {
+            seconds = 0;
+            minutes++;
+        }
+
+        if (minutes == 60) {
+            minutes = 0;
+            hours++
+        }
+
+        showTimer();
+
+    }, 1000);
+}
+
+showTimer = () => {
+    let second = minute = hour = 0;
     
-    `;
+    seconds < 10 ? second = "0" + seconds : second = seconds;
+    minutes < 10 ? minute = "0" + minutes : minute = minutes;
+    hours < 10 ? hour = "0" + hours : hour = hours;
 
-  mk.appendChild(kk)
+    timerElement.innerText = `${hour} : ${minute} : ${second}`;
+}
 
-
-  $('#btn').click(()=>{
-
-    var r_0;
-            var r_1;
-            var r_2;
-            var r_3;
-            var r_4;
-            var r_5;
-            var r_6;
-            var r_7;
-            var r_8;
-            var r_9;
-var r_i=null;
-
-    // const rbs0 = document.querySelectorAll('input[name="r_0"]');
-    // const rbs1 = document.querySelectorAll('input[name="r_1"]');
-    // const rbs2 = document.querySelectorAll('input[name="r_2"]');
-    // const rbs3 = document.querySelectorAll('input[name="r_3"]');
-    // const rbs4 = document.querySelectorAll('input[name="r_4"]');
-    // const rbs5 = document.querySelectorAll('input[name="r_5"]');
-    // const rbs6 = document.querySelectorAll('input[name="r_6"]');
-    // const rbs7 = document.querySelectorAll('input[name="r_7"]');
-    // const rbs8 = document.querySelectorAll('input[name="r_8"]');
-    // const rbs9 = document.querySelectorAll('input[name="r_9"]');
+//-------------------- End Timer ---------------------------------
 
 
-            for(var i=0 ;i<=9;i++){
-                const rbs = document.querySelectorAll(`input[name='r_${i}']`);
-    
-                if(i==i){
-                  
-                    for (const rb of rbs) {
-                if (rb.checked) {
-                    r_i = rb.value;
-                    // console.log(r_i);
-                   break
-                }
+// Quize build
+
+function buildQuize(){
+
+    myQuizes.forEach((quize,index) => {
+        let _questionContainer = buildQuestions(quize.question,index);
+        let _choiceContainer = buildChoices(quize.choices,index);
+        let quizeSlide = document.createElement("div");
+        quizeSlide.setAttribute("class", "slide mk hide-element");
+
+        quizeSlide.append(_questionContainer, _choiceContainer);
+        slideContainer.appendChild(quizeSlide);
+    });
+
+    function buildQuestions(question,index){
+        index=index+1
+        let questionContainer = document.createElement("div");
+        questionContainer.setAttribute("class", "qzz__qo");
+        questionContainer.innerHTML =`<label class="sno">${index}</label>${question}`;
+
+        return questionContainer;
+    }
+
+    function buildChoices(choices,index){
+        let choiceContainer = document.createElement("div");
+        choiceContainer.setAttribute("class", "");
+        let inn=0;
+        for(let key in choices) {
+
+
+            let choiceElement = document.createElement("div");
+            let _choice = document.createElement("div");
+
+
+            _choice.innerHTML=`<input type="radio" id="ir_${index}${inn}"   name="r_${index}"  value="${key.toUpperCase()}) ${choices[key]}"><label for="ir_${index}${inn}">${key.toUpperCase()}) ${choices[key]}</label>`;
+
+            choiceElement.setAttribute("class", "qzz_width");
+          
+            
+            _choice.setAttribute("class", "qzz_width qzz__co choice-btn");
+            _choice.setAttribute("data-index", `${key}) `);
+            choiceElement.appendChild(_choice);
+            choiceContainer.appendChild(choiceElement);
+            ++inn;
+            // _choice.innerText = `${key.toUpperCase()}) ${choices[key]}`;
+        }
+
+        return choiceContainer;
+    }
+}
+
+// ------------------------------ End Quize build -------------------------------------
+
+// Show Quize
+
+let isClicked = [];
+let init = true;
+let myAlert = document.getElementById("warnAlert");
+
+function showQuize(nav){
+
+    switch(nav){
+
+        case "increment" :
+            if(isClicked[questionCount] || init){
+
+                myAlert.classList.add("d-none");
+
+                init = false;
+                questionCount ++;
+                currentQuestionElement.innerText = questionCount + 1;
+                if(questionCount > 0) slides[questionCount-1].classList.remove("show-element");
+                slides[questionCount].classList.add("show-element");
+                $(presentSlideChoices).off("click");
+                
             }
-                }
-                  if(i==0){
-                      r_0=r_i;
-                  }
-                  if(i==1){
-                      r_1=r_i;
-                  }
-                  if(i==2){
-                      r_2=r_i;
-                  }
-                  if(i==3){
-                      r_3=r_i;
-                  }
-                  if(i==4){
-                      r_4=r_i;
-                  }
-                  if(i==5){
-                      r_5=r_i;
-                  }
-                  if(i==6){
-                      r_6=r_i;
-                  }
-                  if(i==7){
-                      r_7=r_i;
-                  }
-                  if(i==8){
-                      r_8=r_i;
-                  }
-                  if(i==9){
-                      r_9=r_i;
-                  }
-            }  
- 
-  })
 
-})
+            else{
+                myAlert.classList.remove("d-none");
+            }
+            
+            break;
 
+        case "decrement" :
 
+            questionCount --;
+            currentQuestionElement.innerText = questionCount + 1;
+            slides[questionCount + 1].classList.remove("show-element");
+            slides[questionCount].classList.add("show-element");
+            $(presentSlideChoices).on("click");
+            break;
 
-//   questions.forEach((x,inde)=>{
+    }
+
+    showControls(questionCount);
+    answerSelection();
+}
+
+function showControls(pos){
+
+    if(pos == 0) {
+        displayControls("next-button", true);
+        displayControls("prev-button", false);
+    }
+
+    if(pos == 1) displayControls("prev-button", true);
+
+    if(pos == myQuizes.length-2) {
+        displayControls("submit-button", false);
+        displayControls("next-button", true);
+    }
+
+    if(pos == myQuizes.length-1) {
+        displayControls("submit-button", true);
+        displayControls("next-button", false);
+    }
+
+}
+
+function displayControls(element, status){
+
+    switch(element){
+
+        case "prev-button" :
+            if(status) prevBtn.classList.add("show-element");
+            else prevBtn.classList.remove("show-element");
+            break;
+
+        case "next-button" : 
+            if(status) nextBtn.classList.add("show-element");
+            else nextBtn.classList.remove("show-element");
+            break;
+
+        case "submit-button" : 
+            if(status) submitBtn.classList.add("show-element");
+            else submitBtn.classList.remove("show-element");
+            break;
+        
+    }
+}
+
+// ------------------------ End Quize ----------------------------
+
+// Answer selection
+
+let userAnswers = [];
+let presentSlideChoices;
+
+function answerSelection(){
+
+    presentSlideChoices = document.querySelectorAll("#slide-container .show-element .choice-btn");
+
+    $(presentSlideChoices).click(function(){
+
+        isClicked[questionCount] = true;
+        myAlert.classList.add("d-none");
+
+        presentSlideChoices.forEach(ch => {
+            $(ch).removeClass("bg-warning");
+            $(ch).addClass("border-primary");
+        });
+
+        $(this).addClass("bg-warning");
+        $(this).removeClass("border-primary");
+
+        let i = $(this);
+        userAnswers[questionCount] = {
+            myAns : this.innerText.slice($(this).data('index').length,),
+            isMatched : ind => myQuizes[ind].answer === userAnswers[ind].myAns ? true : false
+        }
+    });
+}
+
+//------------------------------ End Answer selection -----------------------------
+
+// Show the Result
+
+function showResult(){
+
+    if (isClicked[questionCount]) {
+        myAlert.classList.add("d-none");
+        buildResult();
+    }
+    else myAlert.classList.remove("d-none");
+}
+
+function buildResult(){
+
+    clearInterval(timerCount);
+
+    $(presentSlideChoices).off("click");
+
+    let totMark = 0
+
+    myQuizes.forEach((el, i) => slides[i].classList.add("show-element"));
+
+    userAnswers.forEach((obj, i) => {
+        
+        let myChoices = slides[i].querySelectorAll(".choice-btn");
+        let res = obj.isMatched(i);
+
+            myChoices.forEach(choice => {
+
+                chItr = choice.innerText.slice($(choice).data('index').length,);
+                choice.classList.remove("bg-warning");
+                choice.style.cursor = "not-allowed";
+
+                if(chItr === obj.myAns) res ? ++totMark : choice.classList.add("bg-danger","text-white");
+
+                 if(chItr === myQuizes[i].answer) choice.classList.add("bg-success","text-white");
+            });
+    });
+
+    console.log(totMark);
+
+}
+
+// ---------------------------- End Result -----------------------------------
+
     
-//     console.log(x);
-
-
-//     kk=document.createElement('div');
-//     kk.innerHTML=`
-//     <div class="qzz__qo__item">
-//     <div>
-//         <h4 class="h4">${ind+1+"."+x.question}</h4>
-//     </div>
-//     <div class="qzz__radio">
-//         <input  type="radio" id="i_${ind+1}" value='${x.answer.map((answer,ind)=>{
-//              if (ind==0) {
-//                 return answer.currect;
-//              }
-//         })}'  name="r_${ind}">
-//         <p>${x.answer.map((answer,index)=>{
-//              if (index==0) {
-//                  return answer.a;
-//              }
-//         })}</p>
-//     </div>
-//     <div class="qzz__radio">
-//         <input  type="radio" id="i_${ind+2}" value='${x.answer.map((answer,ind)=>{
-//              if (ind==1) {
-//                 return answer.currect;
-//              }
-//         })}' name="r_${ind}">
-//         <p>${x.answer.map((answer,index)=>{
-//              if (index==1) {
-//                  return answer.b;
-//              }
-//         })}</p>
-//     </div>
-//     <div class="qzz__radio">
-//         <input  type="radio" id="i_${ind+3}" value='${x.answer.map((answer,index)=>{
-//              if (index==2) {
-//                  return answer.currect;
-//              }
-//         })}' name="r_${ind}">
-//         <p>${x.answer.map((answer,index)=>{
-//              if (index==2) {
-//                  return answer.c;
-//              }
-//         })}</p>
-//     </div>
-//     <div class="qzz__radio">
-//         <input  type="radio" id="i_${ind+4}" value='${x.answer.map((answer,index)=>{
-//              if (index==3) {
-//                  return answer.currect;
-//              }
-//         })}' name="r_${ind}">
-//         <p>${x.answer.map((answer,index)=>{
-//              if (index==3) {
-//                  return answer.d;
-//              }
-//         })}</p>
-//     </div>
-// </div>
-
-    
-//     `;
-
-//   mk1.appendChild(kk)
-
-
-//   $('#btn').click(()=>{
-
-//     var r_0;
-//             var r_1;
-//             var r_2;
-//             var r_3;
-//             var r_4;
-//             var r_5;
-//             var r_6;
-//             var r_7;
-//             var r_8;
-//             var r_9;
-// var r_i=null;
-
-//     // const rbs0 = document.querySelectorAll('input[name="r_0"]');
-//     // const rbs1 = document.querySelectorAll('input[name="r_1"]');
-//     // const rbs2 = document.querySelectorAll('input[name="r_2"]');
-//     // const rbs3 = document.querySelectorAll('input[name="r_3"]');
-//     // const rbs4 = document.querySelectorAll('input[name="r_4"]');
-//     // const rbs5 = document.querySelectorAll('input[name="r_5"]');
-//     // const rbs6 = document.querySelectorAll('input[name="r_6"]');
-//     // const rbs7 = document.querySelectorAll('input[name="r_7"]');
-//     // const rbs8 = document.querySelectorAll('input[name="r_8"]');
-//     // const rbs9 = document.querySelectorAll('input[name="r_9"]');
-
-
-//             for(var i=0 ;i<=9;i++){
-//                 const rbs = document.querySelectorAll(`input[name='r_${i}']`);
-    
-//                 if(i==i){
-                  
-//                     for (const rb of rbs) {
-//                 if (rb.checked) {
-//                     r_i = rb.value;
-//                     // console.log(r_i);
-//                    break
-//                 }
-//             }
-//                 }
-//                   if(i==0){
-//                       r_0=r_i;
-//                   }
-//                   if(i==1){
-//                       r_1=r_i;
-//                   }
-//                   if(i==2){
-//                       r_2=r_i;
-//                   }
-//                   if(i==3){
-//                       r_3=r_i;
-//                   }
-//                   if(i==4){
-//                       r_4=r_i;
-//                   }
-//                   if(i==5){
-//                       r_5=r_i;
-//                   }
-//                   if(i==6){
-//                       r_6=r_i;
-//                   }
-//                   if(i==7){
-//                       r_7=r_i;
-//                   }
-//                   if(i==8){
-//                       r_8=r_i;
-//                   }
-//                   if(i==9){
-//                       r_9=r_i;
-//                   }
-//             }  
- 
-//   })
-
-// })
-
-$("#mkmk").click(function(){
-
-  $('#cont').addClass('qzz__hide');
-  $('#cont').removeClass('qzz__show');
-
-});
-$("#mkk").click(function(){
-
-  $('#cont').addClass('qzz__show');
-  $('#cont').removeClass('qzz__hide');
-
-});
-
-</script>
-
-<script>
-
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-
-
-  $(document).bind("contextmenu",function(e) {
-  e.preventDefault();
-});
-});
-  
-  </script>
+    </script>
+</body>
 </html>
